@@ -1,0 +1,76 @@
+.learning-progress {
+  border: 1px solid #192235;
+  background: #080e18;
+  border-radius: 13px;
+  overflow: hidden;
+}
+.learning-progress h2 {
+  margin: 0;
+  padding: 12px 15px;
+  border-bottom: 1px solid #182133;
+  font-size: 15px;
+}
+.learning-progress__body {
+  margin: 0 14px 14px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: linear-gradient(100deg, #0c1220, #0d1423);
+  border-radius: 10px;
+}
+.learning-progress__thumb {
+  width: 108px;
+  height: 72px;
+  flex: none;
+  border-radius: 8px;
+  background:
+    radial-gradient(circle, #7942e9 0 9%, #352187 10% 24%, transparent 25%),
+    #080b2b;
+}
+.learning-progress__info {
+  flex: 1;
+  min-width: 0;
+}
+.learning-progress__info strong,
+.learning-progress__info span {
+  display: block;
+}
+.learning-progress__info span {
+  margin: 7px 0 18px;
+  color: #9da7bb;
+  font-size: 12px;
+}
+.learning-progress__info > div {
+  height: 4px;
+  background: #20293a;
+  border-radius: 5px;
+}
+.learning-progress__info i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #7c39ed, #bc5dff);
+  border-radius: 5px;
+}
+.learning-progress__body > b {
+  font-size: 12px;
+}
+.learning-progress__body > button {
+  margin-left: auto;
+  padding: 11px 22px;
+  border: 0;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #7941ed, #6e3cff);
+  font-weight: 600;
+}
+@media (max-width: 560px) {
+  .learning-progress__thumb {
+    display: none;
+  }
+  .learning-progress__body > button {
+    padding: 10px;
+  }
+  .learning-progress__body > b {
+    display: none;
+  }
+}

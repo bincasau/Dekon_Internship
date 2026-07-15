@@ -1,0 +1,23 @@
+.popular-card {
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.popular-card:hover,
+.popular-card:focus-visible,
+.popular-card--selected {
+  transform: translateY(-3px);
+  border-color: #8b5cf6;
+  box-shadow: 0 8px 24px #6d28d933;
+  outline: none;
+}
+
+.popular-card__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

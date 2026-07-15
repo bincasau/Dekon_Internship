@@ -1,0 +1,4 @@
+import "./Sidebar.css";
+const menuItems=["Trang chủ","Lộ trình học","Khóa học","Bài tập thực hành","AI Mentor","Quiz","Dự án","Sổ tay Web3","Cộng đồng","Bảng xếp hạng","Chứng chỉ NFT"];
+type Props={activeItem:string;onSelectItem:(item:string)=>void};
+export default function Sidebar({activeItem,onSelectItem}:Props){return <aside className="sidebar"><nav>{menuItems.map(item=><button key={item} className={`sidebar__item ${activeItem===item?"sidebar__item--active":""}`} onClick={()=>onSelectItem(item)}><i></i><span>{item}</span>{item==="AI Mentor"&&<b>Beta</b>}</button>)}</nav><div className="sidebar__progress"><p>Tiến độ học tập</p><div className="progress-ring"><strong>35%</strong><small>Hoàn thành</small></div><span>12 / 34 bài học</span><button>Xem tiến độ</button></div><div className="theme-switch"><i></i><span>Chế độ tối</span><b></b></div></aside>}

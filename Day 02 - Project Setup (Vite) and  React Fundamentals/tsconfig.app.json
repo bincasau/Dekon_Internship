@@ -1,0 +1,91 @@
+{
+  /* CẤU HÌNH TYPESCRIPT CHO REACT APP CHẠY TRONG TRÌNH DUYỆT */
+  "compilerOptions": {
+    // Lưu kết quả type-check lần trước để `tsc -b` ở lần sau chạy nhanh hơn.
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+
+    // Phiên bản cú pháp JavaScript mà TypeScript coi là môi trường đích.
+    // Vite vẫn có build.target riêng để hạ code khi tạo bản production.
+    "target": "ES2023",
+
+    // ES2023 cung cấp type API JavaScript; DOM cung cấp window/document;
+    // DOM.Iterable cho phép duyệt NodeList, FormData... bằng for...of.
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+
+    // Giữ import/export ES Module để Vite thực hiện bundle và tree-shaking.
+    "module": "ESNext",
+
+    // Cách tìm module phù hợp bundler: hiểu package exports và import có asset.
+    "moduleResolution": "Bundler",
+
+    // Nạp type do Vite cung cấp cho import.meta.env, import ảnh, ?raw, ?url...
+    "types": ["vite/client"],
+
+    // Cho phép import file có đuôi không phải JS/TS khi đã có declaration phù hợp.
+    "allowArbitraryExtensions": true,
+
+    // Cho phép viết import "./Component.tsx". Chỉ hợp lệ vì noEmit đang bật.
+    "allowImportingTsExtensions": true,
+
+    // Cho phép import data from "./data.json" với type được suy luận từ JSON.
+    "resolveJsonModule": true,
+
+    // Alias này phải đồng bộ với resolve.alias trong vite.config.ts.
+    // TypeScript/VS Code dùng paths; Vite dùng alias lúc chạy và build.
+    "paths": {
+      "@/*": ["./src/*"],
+      "@assets/*": ["./src/assets/*"]
+    },
+
+    // Bật toàn bộ nhóm kiểm tra kiểu nghiêm ngặt như strictNullChecks.
+    "strict": true,
+
+    // Báo lỗi khi tên file import sai chữ hoa/thường, tránh lỗi khi deploy Linux.
+    "forceConsistentCasingInFileNames": true,
+
+    // Bỏ qua type-check bên trong file .d.ts của dependency để kiểm tra nhanh hơn.
+    // Code của chính project vẫn được kiểm tra đầy đủ.
+    "skipLibCheck": true,
+
+    // Giữ nguyên cú pháp import/export theo đúng cách đã viết.
+    // Import chỉ dùng làm type nên viết `import type` để không xuất hiện runtime.
+    "verbatimModuleSyntax": true,
+
+    // Coi mọi file source là module, kể cả file chưa có import/export.
+    "moduleDetection": "force",
+
+    // Mỗi file phải có thể biên dịch độc lập, phù hợp cách Vite transform file.
+    "isolatedModules": true,
+
+    // TypeScript chỉ type-check; Vite mới là công cụ sinh file trong dist.
+    "noEmit": true,
+
+    // Biến JSX thành runtime JSX mới, không cần `import React` trong từng component.
+    "jsx": "react-jsx",
+
+    // Dùng semantics class field chuẩn JavaScript hiện đại.
+    "useDefineForClassFields": true,
+
+    /* KIỂM TRA LỖI CODE CƠ BẢN */
+    // Báo biến/import được khai báo nhưng không sử dụng.
+    "noUnusedLocals": true,
+
+    // Báo tham số hàm không dùng; có thể thêm tiền tố _ nếu cố ý không dùng.
+    "noUnusedParameters": true,
+
+    // Chỉ cho cú pháp TypeScript có thể xóa type đơn giản khi transform.
+    "erasableSyntaxOnly": true,
+
+    // Báo case trong switch bị chạy xuyên xuống case sau vì thiếu break/return.
+    "noFallthroughCasesInSwitch": true,
+
+    // Báo lỗi khi một nhánh code không thể được thực thi.
+    "allowUnreachableCode": false,
+
+    // Báo lỗi label không được sử dụng, thường là lỗi gõ nhầm.
+    "allowUnusedLabels": false
+  },
+
+  // Chỉ type-check source của ứng dụng; dist và node_modules không thuộc phạm vi.
+  "include": ["src"]
+}

@@ -1,0 +1,19 @@
+{
+  /*
+   * TSCONFIG GỐC (SOLUTION CONFIG)
+   * File này không trực tiếp kiểm tra source code. Nó điều phối nhiều project
+   * TypeScript con để code trình duyệt và code Node có cấu hình riêng biệt.
+   * Lệnh `tsc -b` sẽ đọc references và build/type-check theo đúng thứ tự.
+   */
+
+  // Không đưa file source trực tiếp vào project gốc, tránh kiểm tra trùng lặp.
+  "files": [],
+
+  // Project References chia project thành hai môi trường độc lập:
+  // - app: React chạy trong browser, có DOM và JSX.
+  // - node: vite.config.ts chạy bằng Node.js, không cần DOM hay JSX.
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}
