@@ -21,7 +21,7 @@ export default defineConfig(({ command, mode, isSsrBuild }) => {
     // base: Đường dẫn gốc được thêm vào trước URL của JS, CSS và assets khi build.
     // Ví dụ deploy tại https://example.com/my-app/ thì đặt VITE_BASE_URL=/my-app/.
     // Nếu không khai báo biến môi trường, ứng dụng mặc định chạy tại đường dẫn "/".
-    base: env.VITE_BASE_URL || "/",
+    base: "/",
 
     // publicDir: Thư mục chứa tài nguyên tĩnh không cần Vite xử lý.
     // File public/favicon.svg được truy cập bằng /favicon.svg và được copy nguyên vào dist.
