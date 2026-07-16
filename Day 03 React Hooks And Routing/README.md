@@ -1,75 +1,103 @@
-# React + TypeScript + Vite
+# Day 03 - React Hooks and Routing
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Dự án thực hành React Hooks, TypeScript và điều hướng giữa các trang bằng React Router.
 
-Currently, two official plugins are available:
+## Nội dung thực hành
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### useState
 
-## React Compiler
+- Khởi tạo và cập nhật state.
+- Quản lý dữ liệu từ input.
+- Render lại giao diện khi state thay đổi.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### useEffect
 
-## Expanding the ESLint configuration
+- Thực hiện side effect khi component được mount.
+- Gọi API và hiển thị dữ liệu.
+- Theo dõi sự thay đổi của dependencies.
+- Xử lý debounce, timer và sự kiện resize.
+- Cleanup effect khi component unmount.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### useMemo
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Ghi nhớ kết quả tính toán.
+- Lọc và sắp xếp danh sách sản phẩm.
+- Tính tổng giá sản phẩm.
+- Hạn chế tính toán lại khi dependencies không thay đổi.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### useCallback
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Ghi nhớ function giữa các lần render.
+- Kết hợp với `React.memo`.
+- Thêm, xóa và cập nhật trạng thái công việc.
+- Hạn chế component con render lại không cần thiết.
 
+### Custom Hooks
+
+- Xây dựng custom hook `useCounter`.
+- Cấu hình giá trị ban đầu, giới hạn và bước nhảy.
+- Tái sử dụng logic state trong component.
+
+## Routing
+
+Ứng dụng sử dụng `react-router-dom` để chuyển giữa các demo mà không tải lại trang.
+
+| Demo | Đường dẫn |
+| --- | --- |
+| useState | `/use-state` |
+| useEffect | `/use-effect` |
+| useMemo | `/use-memo` |
+| useCallback | `/use-callback` |
+| Custom Hooks | `/custom-hooks` |
+
+Các đường dẫn không hợp lệ sẽ tự động chuyển về `/use-state`.
+
+## Công nghệ sử dụng
+
+- React
+- TypeScript
+- Vite
+- React Router
+- ESLint
+
+## Cài đặt và chạy dự án
+
+Yêu cầu máy đã cài đặt Node.js và npm.
+
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Sau đó mở địa chỉ được Vite hiển thị trong terminal, thông thường là:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```text
+http://localhost:5173
 ```
+
+## Các lệnh hữu ích
+
+```bash
+npm run dev
+npm run build
+npm run lint
+npm run preview
+```
+
+## Cấu trúc chính
+
+```text
+src/
+├── hooks/
+│   ├── UseState.tsx
+│   ├── UseEffect.tsx
+│   ├── UseMemo.tsx
+│   ├── UseCallback.tsx
+│   └── CustomHooks.tsx
+├── App.tsx
+├── App.css
+├── index.css
+└── main.tsx
+```
+
+`App.tsx` khai báo thanh điều hướng và các route. `main.tsx` bọc ứng dụng bằng `BrowserRouter`.
