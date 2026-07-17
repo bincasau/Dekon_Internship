@@ -1,0 +1,22 @@
+.explorer { padding: 24px; min-width: 0; }
+.explorer__hero { display:flex; justify-content:space-between; align-items:center; padding:30px; border:1px solid #30245e; border-radius:16px; background:radial-gradient(circle at 80% 20%,#6632a855,transparent 35%),#0d1320; }
+.explorer__hero span { color:#ad77ff; font-size:11px; letter-spacing:1.5px; }
+.explorer__hero h1 { margin:8px 0; font-size:27px; }
+.explorer__hero p,.explorer__result { color:#929db1; }
+.explorer__hero strong { padding:10px 14px; border-radius:20px; background:#261a49; color:#c8a6ff; font-size:13px; }
+.explorer__filters { margin:20px 0; display:flex; gap:12px; justify-content:space-between; }
+.explorer__filters input { min-width:280px; padding:12px 15px; border:1px solid #253047; border-radius:9px; color:#fff; background:#0d1421; outline:none; }
+.explorer__filters div { display:flex; gap:7px; }
+.explorer__filters button,.explorer__status button { padding:10px 14px; border:1px solid #343f55; border-radius:8px; background:#111928; cursor:pointer; }
+.explorer__filters button.is-active { border-color:#8653ee; background:#49309a; }
+.explorer__grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+.explorer__grid article { padding:18px; border:1px solid #202b3e; border-radius:12px; background:linear-gradient(145deg,#0d1523,#090f19); }
+.explorer__grid article>span { color:#b783ff; font-size:11px; }
+.explorer__grid h2 { min-height:48px; margin:10px 0; font-size:16px; text-transform:capitalize; }
+.explorer__grid p { height:62px; overflow:hidden; color:#9ca7b9; font-size:13px; line-height:1.55; }
+.explorer__grid button { width:100%; margin-top:8px; padding:9px; border:1px solid #6841ba; border-radius:7px; color:#bd93ff; background:transparent; cursor:pointer; }
+.explorer__grid button.is-saved { color:#67d9af; border-color:#26775d; background:#0d2b23; }
+.explorer__status { padding:50px; text-align:center; color:#aab3c2; }
+.explorer__status--error { color:#ff9e9e; }
+@media(max-width:1000px){.explorer__grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.explorer{padding:14px}.explorer__hero,.explorer__filters{align-items:flex-start;flex-direction:column}.explorer__filters input{width:100%;min-width:0}.explorer__filters div{flex-wrap:wrap}.explorer__grid{grid-template-columns:1fr}}

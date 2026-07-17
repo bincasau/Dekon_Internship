@@ -1,0 +1,114 @@
+.welcome-banner {
+  position: relative;
+  min-height: 225px;
+  padding: 27px 30px;
+  display: flex;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 85% 55%, #7132ee66, transparent 36%),
+    linear-gradient(110deg, #0b111d 25%, #13104a 70%, #2020b1);
+  border: 1px solid #263151;
+  border-radius: 14px;
+}
+.welcome-banner:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 45%, #8e5cff18);
+  pointer-events: none;
+}
+.welcome-banner__content {
+  z-index: 2;
+}
+.welcome-banner__content p {
+  margin: 0 0 2px;
+  font-size: 22px;
+  font-weight: 600;
+}
+.welcome-banner__content h2 {
+  margin: 0 0 10px;
+  font-size: 32px;
+}
+.welcome-banner__content > span {
+  color: #d2d5df;
+}
+.welcome-banner__content > div {
+  display: flex;
+  gap: 12px;
+  margin-top: 22px;
+}
+.welcome-banner button {
+  padding: 12px 20px;
+  border: 0;
+  border-radius: 9px;
+  background: linear-gradient(90deg, #7b39f4, #714cff);
+  font-weight: 600;
+  cursor: pointer;
+}
+.welcome-banner button.secondary {
+  border: 1px solid #4b5275;
+  background: #0b1024aa;
+}
+.welcome-banner button i {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 9px;
+  border: 1px solid white;
+  border-radius: 2px;
+  vertical-align: -1px;
+}
+.welcome-banner img {
+  position: absolute;
+  right: 70px;
+  bottom: -48px;
+  width: 340px;
+  opacity: 0.72;
+  filter: drop-shadow(0 0 25px #8d4fff);
+}
+.welcome-banner__streak {
+  position: absolute;
+  z-index: 3;
+  top: 50px;
+  right: 30px;
+  padding: 15px 17px;
+  background: #171148dd;
+  border-radius: 11px;
+  font-size: 19px;
+}
+.welcome-banner__streak b {
+  font-size: 24px;
+}
+.welcome-banner__streak small {
+  display: block;
+  margin-top: 5px;
+  font-size: 10px;
+  text-align: center;
+}
+@media (max-width: 900px) {
+  .welcome-banner img {
+    opacity: 0.25;
+    right: 10px;
+  }
+  .welcome-banner__streak {
+    right: 18px;
+  }
+}
+@media (max-width: 560px) {
+  .welcome-banner {
+    padding: 22px;
+  }
+  .welcome-banner__content h2 {
+    font-size: 27px;
+  }
+  .welcome-banner__streak {
+    display: none;
+  }
+  .welcome-banner img {
+    right: -65px;
+    width: 290px;
+  }
+  .welcome-banner__content > div {
+    flex-wrap: wrap;
+  }
+}

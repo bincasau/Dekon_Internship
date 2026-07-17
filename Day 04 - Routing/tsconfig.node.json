@@ -1,0 +1,53 @@
+{
+  /* CẤU HÌNH TYPESCRIPT CHO FILE CHẠY TRONG NODE.JS */
+  "compilerOptions": {
+    // Cache riêng với app để incremental type-check nhanh và không xung đột.
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+
+    // vite.config.ts chạy bằng Node hiện đại nên có thể sử dụng cú pháp ES2023.
+    "target": "ES2023",
+    "lib": ["ES2023"],
+
+    // NodeNext đọc trường "type": "module" trong package.json và tuân theo ESM Node.
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+
+    // Chỉ nạp global/type của Node như process, Buffer và node:url; không nạp DOM.
+    "types": ["node"],
+
+    // Hỗ trợ import file JSON nếu sau này config cần đọc metadata.
+    "resolveJsonModule": true,
+
+    // Cho phép ghi rõ đuôi .ts trong import khi noEmit=true.
+    "allowImportingTsExtensions": true,
+
+    // Giữ nguyên import/export và yêu cầu dùng `import type` cho type-only import.
+    "verbatimModuleSyntax": true,
+
+    // Coi vite.config.ts là module một cách nhất quán.
+    "moduleDetection": "force",
+    "isolatedModules": true,
+
+    // Chỉ kiểm tra type; Vite tự load/transform file config, TypeScript không xuất JS.
+    "noEmit": true,
+
+    // Bật kiểm tra kiểu nghiêm ngặt cho code cấu hình.
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+
+    // Không kiểm tra lại .d.ts trong node_modules để tiết kiệm thời gian.
+    "skipLibCheck": true,
+
+    /* KIỂM TRA LỖI CODE CƠ BẢN */
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false
+  },
+
+  // Hiện chỉ vite.config.ts là code TypeScript chạy trong môi trường Node.
+  // Nếu thêm script TS, có thể đổi thành: ["vite.config.ts", "scripts/**/*.ts"].
+  "include": ["vite.config.ts"]
+}
