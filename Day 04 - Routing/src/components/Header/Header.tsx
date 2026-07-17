@@ -1,4 +1,5 @@
 import "./Header.css";
+import { Link } from "react-router-dom";
 type Props = {
   userName: string;
   searchValue: string;
@@ -13,10 +14,10 @@ export default function Header({
 }: Props) {
   return (
     <header className="header">
-      <h1 className="header__logo">
+      <Link className="header__logo" to="/" aria-label="Về trang chủ Web3Learn">
         <i></i>
         <span>Web3</span>Learn
-      </h1>
+      </Link>
       <label className="header__search">
         <span>⌕</span>
         <input
