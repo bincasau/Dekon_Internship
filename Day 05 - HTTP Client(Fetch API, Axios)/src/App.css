@@ -37,6 +37,13 @@ input, select, textarea { width: 100%; border: 1px solid var(--line); border-rad
 .todo.done h3 { text-decoration: line-through; color: var(--muted); }
 .profile-photo { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
 .profile-form { display: grid; gap: 18px; }
+.not-found-page { min-height: 100vh; display: grid; place-items: center; padding: 24px; text-align: center; }
+.not-found-card { width: min(520px, 100%); }
+.not-found-code { margin: 0; color: var(--purple); font-size: clamp(72px, 16vw, 128px); font-weight: 800; line-height: 1; }
+.not-found-card h1 { margin: 18px 0 8px; }
+.not-found-card > p:not(.not-found-code) { color: var(--muted); }
+.not-found-actions { display: flex; justify-content: center; gap: 12px; margin-top: 26px; flex-wrap: wrap; }
+.not-found-actions a { border-radius: 9px; padding: 11px 16px; }
 @media (max-width: 760px) {
   .app-shell { display: block; }
   .sidebar { position: static; width: 100%; flex-direction: row; align-items: center; flex-wrap: wrap; }

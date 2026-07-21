@@ -184,7 +184,7 @@ npm run build
 src/
 ├── components/       # Layout và protected route
 ├── hooks/            # Auth Context
-├── pages/            # Login, Register, Dashboard, Profile
+├── pages/            # Login, Register, Dashboard, Profile, Not Found
 ├── services/api.ts   # Axios instance, interceptor và các API service
 ├── types.ts          # Request/response TypeScript types
 ├── App.tsx           # Router
