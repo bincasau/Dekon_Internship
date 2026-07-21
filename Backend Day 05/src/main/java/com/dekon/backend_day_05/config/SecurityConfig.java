@@ -30,9 +30,9 @@ import java.util.List;
 public class SecurityConfig {
 
     @Value("${base.fe.url}")
-    private static String BASE_FE_URL;
+    private String baseFeUrl;
 
-    private static String[] PUBLIC_ENDPOINT= {
+    private static final String[] PUBLIC_ENDPOINTS = {
             "/api/auth/**",
             "/oauth2/**",
             "/login/oauth2/**",
@@ -53,7 +53,7 @@ public class SecurityConfig {
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(PUBLIC_ENDPOINT).permitAll()
+                        .requestMatchers(PUBLIC_ENDPOINTS).permitAll()
                         .anyRequest().authenticated())
                 .oauth2Login(oauth -> oauth.successHandler(oauth2SuccessHandler))
                 .oauth2ResourceServer(resourceServer -> resourceServer.jwt(Customizer.withDefaults()));
@@ -64,7 +64,7 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
 
-        configuration.setAllowedOrigins(List.of(BASE_FE_URL));
+        configuration.setAllowedOrigins(List.of(baseFeUrl));
         configuration.setAllowedMethods(List.of(
                 "GET",
                 "POST",
