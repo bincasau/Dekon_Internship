@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: backend-day-05
+  datasource:
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${GOOGLE_CLIENT_ID:local-client-id}
+            client-secret: ${GOOGLE_CLIENT_SECRET:local-client-secret}
+            scope: openid, profile, email
+
+app:
+  jwt:
+    secret: ${JWT_SECRET}
+    access-token-expiration: 900
+    refresh-token-expiration: 604800
+  cloudinary:
+    cloud-name: ${CLOUDINARY_CLOUD_NAME:local-cloud-name}
+    api-key: ${CLOUDINARY_API_KEY:local-api-key}
+    api-secret: ${CLOUDINARY_API_SECRET:local-api-secret}
+
+spring.servlet.multipart:
+  max-file-size: 5MB
+  max-request-size: 5MB
+
+server:
+  port: 8081
+
+base:
+  fe:
+    url: ${BASE_FE_URL:http://localhost:5173}
